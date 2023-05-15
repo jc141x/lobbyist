@@ -1,0 +1,21 @@
+{
+  "name": "lobbyist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "matrix-bot-sdk": "^0.6.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}
