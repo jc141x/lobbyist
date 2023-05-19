@@ -54,6 +54,7 @@ client.start().then(() => console.log("Client started!"));
 async function handleEvent(roomId: string, event: any) {
   if (event["type"] !== "m.room.member") return;
   if (event["content"]["membership"] !== "join") return;
+  if (event?.["unsigned"]?.["prev_content"]?.["membership"] === "join") return;
 
   const userId = event["state_key"];
   const displayName = event["content"]["displayname"] || userId;
