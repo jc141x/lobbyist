@@ -1,8 +1,9 @@
 import {
   MatrixClient,
-  MemoryStorageProvider,
+  SimpleFsStorageProvider,
   RichReply,
 } from "matrix-bot-sdk";
+import path from "path";
 import { config as dotenvConfig } from "dotenv";
 dotenvConfig();
 
@@ -13,7 +14,7 @@ if (!accessToken || !homeserverUrl) {
   console.error("ACCESS_TOKEN and HOMESERVER is required");
   process.exit(1);
 }
-const storage = new MemoryStorageProvider();
+const storage = new SimpleFsStorageProvider(path.join(process.env.HOME, ".local/share/lobbyist/storage.json") );
 
 const client = new MatrixClient(homeserverUrl, accessToken, storage);
 
